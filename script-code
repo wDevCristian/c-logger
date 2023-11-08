@@ -1,0 +1,3 @@
+# include into '~/.bashrc' file, in order to make it work.
+
+alias getlogger='echo -e "logger.o: logger.c\n\tgcc -c \$> -o \$@\n\nclear-logs:\n\trm -v logs/*" >> makefile; echo "makefile: inserted default snippet for \"logger.o\" and \"clear-logs\"";cp -v /mnt/d/projects/logger/logger.? ./; mkdir -v logs'
