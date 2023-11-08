@@ -13,21 +13,21 @@ static int __fd = -1;
 
 char *get_current_datetime()
 {
-   char *currentTime = (char *)malloc(sizeof(char) * 64);
+   char *currentTime = (char *)malloc(sizeof(char) * 20);
    time_t now;
    struct tm *local;
 
    now = time(NULL);
    local = localtime(&now);
 
-   strftime(currentTime, 64, "%d.%m.%Y %H:%M:%S", local);
+   strftime(currentTime, 20, "%d.%m.%Y %H:%M:%S", local);
 
    return currentTime;
 }
 
 static int create_file_descriptor()
 {
-   int file_descriptor = open("logs/"__lf, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+   int file_descriptor = open("logs/"__lf, O_WRONLY | O_APPEND | O_CREAT, 0644);
 
    if (file_descriptor < 0)
    {
